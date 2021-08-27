@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - 14.16.0
+cache:
+  directories:
+    - node_modules
+script:
+  - yarn run build
+  - yarn run next export
+  - touch out/.nojekyll
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: out
