@@ -6,7 +6,6 @@ cache:
     - node_modules
 script:
   - yarn run build
-  - yarn run next export
   - touch out/.nojekyll
 deploy:
   provider: pages
