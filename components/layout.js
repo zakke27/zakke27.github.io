@@ -2,8 +2,13 @@ import Head from 'next/head'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const name = 'Zakke'
+const imageLoader = ({ src, width }) => {
+  return `${src}?w=${width}`
+}
+
 export const siteTitle = 'Next.js Sample Website'
 
 export default function Layout({ children, home }) {
@@ -24,7 +29,8 @@ export default function Layout({ children, home }) {
       <header className={styles.header}>
         {home ? (
           <>
-            <img
+            <Image
+              loader={imageLoader}
               src="/images/profile.jpg"
               className={utilStyles.borderCircle}
               height={144}
@@ -37,7 +43,8 @@ export default function Layout({ children, home }) {
           <>
             <Link href="/">
               <a>
-                <img
+                <Image
+                  loader={imageLoader}
                   src="/images/profile.jpg"
                   className={utilStyles.borderCircle}
                   height={108}
